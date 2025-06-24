@@ -1,6 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
+from playlist import Playlist
 
+playlist = Playlist()
 selected_date = "2000-04-08" # input("Billboard top 100 on which date? (YYYY-MM-DD): ")
 
 header = {
@@ -17,5 +19,8 @@ site_data = BeautifulSoup(response.text,"html.parser")
 titles_data = site_data.select("li ul li h3")
 
 titles = [data.get_text().strip() for data in titles_data]
+
+playlist.search_song_uri(song_name="blue")
+
 
 
