@@ -18,4 +18,4 @@ titles_data = site_data.select("li ul li h3")
 
 titles = [data.get_text().strip() for data in titles_data]
 
-print(titles)
+
