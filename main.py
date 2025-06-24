@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from playlist import Playlist
 
 playlist = Playlist()
-selected_date = "2000-04-08" # input("Billboard top 100 on which date? (YYYY-MM-DD): ")
+selected_date = "1993-04-05" # input("Billboard top 100 on which date? (YYYY-MM-DD): ")
 
 header = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -20,7 +20,12 @@ titles_data = site_data.select("li ul li h3")
 
 titles = [data.get_text().strip() for data in titles_data]
 
-playlist.search_song_uri(song_name="blue")
+print(titles)
+num = 1
+for item in titles:
+    print(f"-----Track# {num}-----")
+    playlist.search_song(song_name=item)
+    num += 1
 
 
 

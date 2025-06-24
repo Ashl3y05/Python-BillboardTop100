@@ -22,7 +22,7 @@ class Playlist:
     def create_playlist(self):
         pass
 
-    def search_song_uri(self,song_name, **artist):
+    def search_song(self,song_name, **artist):
         track_name = song_name
         artist_name = artist
 
@@ -32,7 +32,6 @@ class Playlist:
             query = {track_name}
 
         result = self.access_token.search(q=query, type="track", limit=1)
-        print(result)
         if result["tracks"]["items"]:
             track = result['tracks']['items'][0]
             print("Track:", track['name'])
